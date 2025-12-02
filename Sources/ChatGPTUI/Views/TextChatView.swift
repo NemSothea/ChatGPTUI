@@ -40,6 +40,8 @@ public struct TextChatView<CustomContent: View>: View {
                                     await vm.retry(message: message)
                                 }
                             }
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
                         }
                     }
                     .onTapGesture {
@@ -62,7 +64,9 @@ public struct TextChatView<CustomContent: View>: View {
                     AsyncImage(url: url) { image in
                         image
                             .resizable()
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: 30, height: 30)
+                            .clipShape(Circle())
                     } placeholder: {
                         ProgressView()
                     }
@@ -71,6 +75,7 @@ public struct TextChatView<CustomContent: View>: View {
                     Image(image)
                         .resizable()
                         .frame(width: 30, height: 30)
+                        .clipShape(Circle())
                 }
             }
             

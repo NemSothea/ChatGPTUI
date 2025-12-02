@@ -43,7 +43,9 @@ public struct MessageRowView<CustomContent: View>: View {
                 AsyncImage(url: url) { image in
                     image
                         .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: imageSize.width, height: imageSize.height)
+                        .clipShape(Circle())
                 } placeholder: {
                     ProgressView()
                 }
@@ -52,6 +54,7 @@ public struct MessageRowView<CustomContent: View>: View {
                 Image(image)
                     .resizable()
                     .frame(width: imageSize.width, height: imageSize.height)
+                    .clipShape(Circle())
             }
         }
                 
